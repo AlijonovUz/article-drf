@@ -1,1 +1,0 @@
-web: gunicorn article.wsgi:application
