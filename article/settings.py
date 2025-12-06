@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     "rest_framework",
     "rest_framework_simplejwt",
+    "django_filters",
     "corsheaders",
     "drf_yasg",
 ]
@@ -129,7 +130,7 @@ STATIC_ROOT = BASE_DIR / "static"
 
 # media files
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 # Django rest framework
@@ -200,7 +201,6 @@ SWAGGER_SETTINGS = {
         }
     }
 }
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
