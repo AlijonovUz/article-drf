@@ -2,26 +2,16 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
+from api.handlers import handler404 as json_404
+from api.handlers import handler500 as json_500
 
-schema_view = get_schema_view(
-   openapi.Info(
-      title="Article API",
-      default_version='v1',
-      contact=openapi.Contact(email="info@alijonov.uz"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
-)
+handler404 = json_404
+handler500 = json_500
 
 urlpatterns = [
     path("api/v1/", include("api.urls")),
     path('auth/', include("accounts.urls")),
 
-    path("", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 
 if settings.DEBUG:
